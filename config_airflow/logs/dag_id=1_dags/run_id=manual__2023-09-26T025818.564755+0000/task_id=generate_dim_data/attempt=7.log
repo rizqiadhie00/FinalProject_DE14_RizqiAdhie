@@ -1,0 +1,23 @@
+[2023-09-26 03:12:56,611] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: 1_dags.generate_dim_data manual__2023-09-26T02:58:18.564755+00:00 [queued]>
+[2023-09-26 03:12:56,620] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: 1_dags.generate_dim_data manual__2023-09-26T02:58:18.564755+00:00 [queued]>
+[2023-09-26 03:12:56,621] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-09-26 03:12:56,621] {taskinstance.py:1357} INFO - Starting attempt 7 of 7
+[2023-09-26 03:12:56,621] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-09-26 03:12:56,635] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): generate_dim_data> on 2023-09-26 02:58:18.564755+00:00
+[2023-09-26 03:12:56,640] {standard_task_runner.py:52} INFO - Started process 454 to run task
+[2023-09-26 03:12:56,643] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', '1_dags', 'generate_dim_data', 'manual__2023-09-26T02:58:18.564755+00:00', '--job-id', '23', '--raw', '--subdir', 'DAGS_FOLDER/1_dags.py', '--cfg-path', '/tmp/tmp4dbmy5nm', '--error-file', '/tmp/tmpxkak8so2']
+[2023-09-26 03:12:56,644] {standard_task_runner.py:80} INFO - Job 23: Subtask generate_dim_data
+[2023-09-26 03:12:56,738] {task_command.py:369} INFO - Running <TaskInstance: 1_dags.generate_dim_data manual__2023-09-26T02:58:18.564755+00:00 [running]> on host 615eeecb9afd
+[2023-09-26 03:12:56,881] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=1_dags
+AIRFLOW_CTX_TASK_ID=generate_dim_data
+AIRFLOW_CTX_EXECUTION_DATE=2023-09-26T02:58:18.564755+00:00
+AIRFLOW_CTX_TRY_NUMBER=7
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-09-26T02:58:18.564755+00:00
+[2023-09-26 03:12:57,162] {python.py:173} INFO - Done. Returned value was: None
+[2023-09-26 03:12:57,178] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=1_dags, task_id=generate_dim_data, execution_date=20230926T025818, start_date=20230926T031256, end_date=20230926T031257
+[2023-09-26 03:12:57,217] {local_task_job.py:156} INFO - Task exited with return code 0
+[2023-09-26 03:12:57,265] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

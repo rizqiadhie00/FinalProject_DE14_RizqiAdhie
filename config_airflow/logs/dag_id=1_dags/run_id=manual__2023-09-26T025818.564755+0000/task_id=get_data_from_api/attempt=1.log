@@ -1,0 +1,54 @@
+[2023-09-26 02:58:20,305] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: 1_dags.get_data_from_api manual__2023-09-26T02:58:18.564755+00:00 [queued]>
+[2023-09-26 02:58:20,319] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: 1_dags.get_data_from_api manual__2023-09-26T02:58:18.564755+00:00 [queued]>
+[2023-09-26 02:58:20,319] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-09-26 02:58:20,320] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-09-26 02:58:20,320] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-09-26 02:58:20,425] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): get_data_from_api> on 2023-09-26 02:58:18.564755+00:00
+[2023-09-26 02:58:20,433] {standard_task_runner.py:52} INFO - Started process 259 to run task
+[2023-09-26 02:58:20,459] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', '1_dags', 'get_data_from_api', 'manual__2023-09-26T02:58:18.564755+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/1_dags.py', '--cfg-path', '/tmp/tmpizcy1_2j', '--error-file', '/tmp/tmpa06nne4p']
+[2023-09-26 02:58:20,460] {standard_task_runner.py:80} INFO - Job 16: Subtask get_data_from_api
+[2023-09-26 02:58:20,622] {task_command.py:369} INFO - Running <TaskInstance: 1_dags.get_data_from_api manual__2023-09-26T02:58:18.564755+00:00 [running]> on host 615eeecb9afd
+[2023-09-26 02:58:20,890] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=1_dags
+AIRFLOW_CTX_TASK_ID=get_data_from_api
+AIRFLOW_CTX_EXECUTION_DATE=2023-09-26T02:58:18.564755+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-09-26T02:58:18.564755+00:00
+[2023-09-26 02:58:21,387] {covid_scrapper.py:12} INFO - GETT
+[2023-09-26 02:58:21,416] {covid_scrapper.py:14} INFO - DATA READY
+[2023-09-26 02:58:21,491] {logging_mixin.py:115} INFO - <class 'pandas.core.frame.DataFrame'>
+RangeIndex: 145 entries, 0 to 144
+Data columns (total 20 columns):
+ #   Column                    Non-Null Count  Dtype 
+---  ------                    --------------  ----- 
+ 0   CLOSECONTACT              145 non-null    int64 
+ 1   CONFIRMATION              145 non-null    int64 
+ 2   PROBABLE                  145 non-null    int64 
+ 3   SUSPECT                   145 non-null    int64 
+ 4   closecontact_dikarantina  145 non-null    int64 
+ 5   closecontact_discarded    145 non-null    int64 
+ 6   closecontact_meninggal    145 non-null    int64 
+ 7   confirmation_meninggal    145 non-null    int64 
+ 8   confirmation_sembuh       145 non-null    int64 
+ 9   kode_kab                  145 non-null    object
+ 10  kode_prov                 145 non-null    object
+ 11  nama_kab                  145 non-null    object
+ 12  nama_prov                 145 non-null    object
+ 13  probable_diisolasi        145 non-null    int64 
+ 14  probable_discarded        145 non-null    int64 
+ 15  probable_meninggal        145 non-null    int64 
+ 16  suspect_diisolasi         145 non-null    int64 
+ 17  suspect_discarded         145 non-null    int64 
+ 18  suspect_meninggal         145 non-null    int64 
+ 19  tanggal                   145 non-null    object
+dtypes: int64(15), object(5)
+memory usage: 22.8+ KB
+[2023-09-26 02:58:21,493] {logging_mixin.py:115} INFO - None
+[2023-09-26 02:58:23,672] {1_dags.py:39} INFO - DATA INSERTED SUCCESSFULLY TO MYSQL
+[2023-09-26 02:58:23,673] {python.py:173} INFO - Done. Returned value was: None
+[2023-09-26 02:58:23,752] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=1_dags, task_id=get_data_from_api, execution_date=20230926T025818, start_date=20230926T025820, end_date=20230926T025823
+[2023-09-26 02:58:23,796] {local_task_job.py:156} INFO - Task exited with return code 0
+[2023-09-26 02:58:23,825] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,43 @@
+[2023-09-26 05:16:08,195] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: 1_dags.get_province_daily manual__2023-09-26T02:58:18.564755+00:00 [queued]>
+[2023-09-26 05:16:08,205] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: 1_dags.get_province_daily manual__2023-09-26T02:58:18.564755+00:00 [queued]>
+[2023-09-26 05:16:08,205] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-09-26 05:16:08,206] {taskinstance.py:1357} INFO - Starting attempt 6 of 6
+[2023-09-26 05:16:08,206] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-09-26 05:16:08,224] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): get_province_daily> on 2023-09-26 02:58:18.564755+00:00
+[2023-09-26 05:16:08,231] {standard_task_runner.py:52} INFO - Started process 1957 to run task
+[2023-09-26 05:16:08,235] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', '1_dags', 'get_province_daily', 'manual__2023-09-26T02:58:18.564755+00:00', '--job-id', '38', '--raw', '--subdir', 'DAGS_FOLDER/1_dags.py', '--cfg-path', '/tmp/tmpxlhf5_9q', '--error-file', '/tmp/tmpgc93j3lh']
+[2023-09-26 05:16:08,236] {standard_task_runner.py:80} INFO - Job 38: Subtask get_province_daily
+[2023-09-26 05:16:08,290] {task_command.py:369} INFO - Running <TaskInstance: 1_dags.get_province_daily manual__2023-09-26T02:58:18.564755+00:00 [running]> on host 615eeecb9afd
+[2023-09-26 05:16:08,359] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=1_dags
+AIRFLOW_CTX_TASK_ID=get_province_daily
+AIRFLOW_CTX_EXECUTION_DATE=2023-09-26T02:58:18.564755+00:00
+AIRFLOW_CTX_TRY_NUMBER=6
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-09-26T02:58:18.564755+00:00
+[2023-09-26 05:16:08,519] {transformer.py:139} INFO - <sqlalchemy.engine.cursor.LegacyCursorResult object at 0x7f7ac0844350>
+[2023-09-26 05:16:08,519] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/1_dags.py", line 88, in fun_insert_province_daily
+    transformer.transform_daily_province()
+  File "/opt/airflow/dags/modules/transformer.py", line 141, in transform_daily_province
+    total=text(results))
+  File "<string>", line 2, in text
+  File "<string>", line 2, in _create_text
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/deprecations.py", line 298, in warned
+    return fn(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 1741, in _create_text
+    return TextClause(text, bind=bind)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 1641, in __init__
+    self.text = self._bind_params_regex.sub(repl, text)
+TypeError: expected string or bytes-like object
+[2023-09-26 05:16:08,544] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=1_dags, task_id=get_province_daily, execution_date=20230926T025818, start_date=20230926T051608, end_date=20230926T051608
+[2023-09-26 05:16:08,559] {standard_task_runner.py:97} ERROR - Failed to execute job 38 for task get_province_daily (expected string or bytes-like object; 1957)
+[2023-09-26 05:16:08,570] {local_task_job.py:156} INFO - Task exited with return code 1
+[2023-09-26 05:16:08,602] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

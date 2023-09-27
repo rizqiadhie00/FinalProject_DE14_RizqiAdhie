@@ -1,0 +1,192 @@
+[2023-09-25 16:35:29,436] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: 1_dags.get_data_from_api scheduled__2023-09-24T00:00:00+00:00 [queued]>
+[2023-09-25 16:35:29,456] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: 1_dags.get_data_from_api scheduled__2023-09-24T00:00:00+00:00 [queued]>
+[2023-09-25 16:35:29,457] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-09-25 16:35:29,458] {taskinstance.py:1357} INFO - Starting attempt 3 of 3
+[2023-09-25 16:35:29,459] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-09-25 16:35:29,491] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): get_data_from_api> on 2023-09-24 00:00:00+00:00
+[2023-09-25 16:35:29,521] {standard_task_runner.py:52} INFO - Started process 343 to run task
+[2023-09-25 16:35:29,531] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', '1_dags', 'get_data_from_api', 'scheduled__2023-09-24T00:00:00+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/1_dags.py', '--cfg-path', '/tmp/tmpeqvce348', '--error-file', '/tmp/tmp3k1rgob9']
+[2023-09-25 16:35:29,535] {standard_task_runner.py:80} INFO - Job 9: Subtask get_data_from_api
+[2023-09-25 16:35:29,740] {task_command.py:369} INFO - Running <TaskInstance: 1_dags.get_data_from_api scheduled__2023-09-24T00:00:00+00:00 [running]> on host 615eeecb9afd
+[2023-09-25 16:35:30,009] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=1_dags
+AIRFLOW_CTX_TASK_ID=get_data_from_api
+AIRFLOW_CTX_EXECUTION_DATE=2023-09-24T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=3
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-09-24T00:00:00+00:00
+[2023-09-25 16:35:30,176] {covid_scrapper.py:12} INFO - GETT
+[2023-09-25 16:35:30,207] {covid_scrapper.py:14} INFO - DATA READY
+[2023-09-25 16:35:30,271] {logging_mixin.py:115} INFO - <class 'pandas.core.frame.DataFrame'>
+RangeIndex: 145 entries, 0 to 144
+Data columns (total 20 columns):
+ #   Column                    Non-Null Count  Dtype 
+---  ------                    --------------  ----- 
+ 0   CLOSECONTACT              145 non-null    int64 
+ 1   CONFIRMATION              145 non-null    int64 
+ 2   PROBABLE                  145 non-null    int64 
+ 3   SUSPECT                   145 non-null    int64 
+ 4   closecontact_dikarantina  145 non-null    int64 
+ 5   closecontact_discarded    145 non-null    int64 
+ 6   closecontact_meninggal    145 non-null    int64 
+ 7   confirmation_meninggal    145 non-null    int64 
+ 8   confirmation_sembuh       145 non-null    int64 
+ 9   kode_kab                  145 non-null    object
+ 10  kode_prov                 145 non-null    object
+ 11  nama_kab                  145 non-null    object
+ 12  nama_prov                 145 non-null    object
+ 13  probable_diisolasi        145 non-null    int64 
+ 14  probable_discarded        145 non-null    int64 
+ 15  probable_meninggal        145 non-null    int64 
+ 16  suspect_diisolasi         145 non-null    int64 
+ 17  suspect_discarded         145 non-null    int64 
+ 18  suspect_meninggal         145 non-null    int64 
+ 19  tanggal                   145 non-null    object
+dtypes: int64(15), object(5)
+memory usage: 22.8+ KB
+[2023-09-25 16:35:30,272] {logging_mixin.py:115} INFO - None
+[2023-09-25 16:35:30,462] {1_dags.py:35} ERROR - (mysql.connector.errors.DatabaseError) 1130 (HY000): Host '172.18.0.1' is not allowed to connect to this MySQL server
+(Background on this error at: http://sqlalche.me/e/14/4xp6)
+[2023-09-25 16:35:30,520] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/mysql/connector/connection_cext.py", line 246, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Host '172.18.0.1' is not allowed to connect to this MySQL server
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3141, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 301, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 755, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 419, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    self._dec_overflow()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 142, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 247, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 362, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 605, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 599, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 583, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/mysql/connector/__init__.py", line 272, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/mysql/connector/connection_cext.py", line 94, in __init__
+    self.connect(**kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/mysql/connector/abstracts.py", line 1052, in connect
+    self._open_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/mysql/connector/connection_cext.py", line 252, in _open_connection
+    sqlstate=exc.sqlstate)
+mysql.connector.errors.DatabaseError: 1130 (HY000): Host '172.18.0.1' is not allowed to connect to this MySQL server
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/1_dags.py", line 38, in fun_get_data_from_api
+    data.to_sql(con=engine_sql, name="covid_jabar", index=False)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/generic.py", line 2882, in to_sql
+    method=method,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 728, in to_sql
+    **engine_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1758, in to_sql
+    dtype=dtype,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1650, in prep_table
+    table.create()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 856, in create
+    if self.exists():
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 840, in exists
+    return self.pd_sql.has_table(self.name, self.schema)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1783, in has_table
+    insp = sa.inspect(self.connectable)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/inspection.py", line 64, in inspect
+    ret = reg(subject)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/reflection.py", line 182, in _engine_insp
+    return Inspector._construct(Inspector._init_engine, bind)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/reflection.py", line 117, in _construct
+    init(self, bind)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/reflection.py", line 128, in _init_engine
+    engine.connect().close()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3095, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 91, in __init__
+    else engine.raw_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3174, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3145, in _wrap_pool_connect
+    e, dialect, self
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2004, in _handle_dbapi_exception_noconnection
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3141, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 301, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 755, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 419, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 145, in _do_get
+    self._dec_overflow()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 142, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 247, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 362, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 605, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 599, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 583, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/mysql/connector/__init__.py", line 272, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/mysql/connector/connection_cext.py", line 94, in __init__
+    self.connect(**kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/mysql/connector/abstracts.py", line 1052, in connect
+    self._open_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/mysql/connector/connection_cext.py", line 252, in _open_connection
+    sqlstate=exc.sqlstate)
+sqlalchemy.exc.DatabaseError: (***.connector.errors.DatabaseError) 1130 (HY000): Host '172.18.0.1' is not allowed to connect to this MySQL server
+(Background on this error at: http://sqlalche.me/e/14/4xp6)
+[2023-09-25 16:35:30,660] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=1_dags, task_id=get_data_from_api, execution_date=20230924T000000, start_date=20230925T163529, end_date=20230925T163530
+[2023-09-25 16:35:30,711] {standard_task_runner.py:97} ERROR - Failed to execute job 9 for task get_data_from_api ((***.connector.errors.DatabaseError) 1130 (HY000): Host '172.18.0.1' is not allowed to connect to this MySQL server
+(Background on this error at: http://sqlalche.me/e/14/4xp6); 343)
+[2023-09-25 16:35:30,793] {local_task_job.py:156} INFO - Task exited with return code 1
+[2023-09-25 16:35:30,925] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
